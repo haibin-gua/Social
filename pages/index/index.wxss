@@ -1,0 +1,60 @@
+/**index.wxss**/
+image{
+  width:100%;
+  height: 100%;
+}
+.header{
+  height: 80rpx;
+  background: #39D859;
+  padding:0 40rpx;
+  overflow: hidden;
+}
+.header .search{
+  width:500rpx;
+  height: 60rpx;
+  margin-top:8rpx;
+  overflow: hidden;
+  border-radius: 40rpx;
+  position: relative;
+}
+.header .search input{
+  width:100%;
+  height: 100%;
+  background: #fff;
+  padding-left:40rpx;
+  font-size: 28rpx;
+}
+.header .search image{
+  width:60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 20rpx;
+  top:0;
+}
+
+.body .list .li{
+  padding:20rpx 20rpx;
+  margin-bottom:20rpx;
+  height:300rpx;
+  box-shadow:rgba(0, 0, 0, 0.4) 0rpx 0rpx 20rpx;
+}
+.body .list .txt{
+  float: left;
+  width:450rpx;
+}
+.body .list .txt .title{
+  font-size: 36rpx;
+}
+.body .list .txt .text{
+  font-size: 28rpx;
+  opacity: .5;
+}
+.body .list .img{
+  float: right;
+  width:250rpx;
+  height: 250rpx;
+  overflow: hidden;
+}
+.body .list .img image{
+  border-radius: 40rpx;
+}

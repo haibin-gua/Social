@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="header">
+  <view class="search">
+    <input type="text" placeholder="请输入查询内容"/>
+    <image src="./images/search.png"></image>
+  </view>
+</view>
+<view class="body">
+    <view class="list">
+      <view class="li" wx:for="item of list" wx:key="item.id">
+        <view class="txt">
+          <view class="title">{{item.title}}</view>
+          <view class="text">{{item.body}}</view>
+        </view>
+        <view class="img">
+          <image src="./images/333.jpg"></image>
+        </view>
+        <view class="btns">
+          
+        </view>
+      </view>
+      <view class="li">ddd</view>
+    </view>
+</view>
