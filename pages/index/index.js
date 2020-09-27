@@ -4,16 +4,20 @@ const app = getApp()
 
 Page({
   data: {
+    list:[{
+      id:'0001',
+      title:'啦啦啦啦啦啦',
+      txt:'啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦'
+    },
+    {
+      id:'0002',
+      title:'啦啦啦啦啦啦',
+      txt:'啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦'
+    }],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list:[{
-      id:0001,
-      title:'啦啦啦',
-      body:'啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
-      img:'./images/333.jpg'
-    }]
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap: function() {

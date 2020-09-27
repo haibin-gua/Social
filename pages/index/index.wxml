@@ -4,21 +4,23 @@
     <input type="text" placeholder="请输入查询内容"/>
     <image src="./images/search.png"></image>
   </view>
+  <view class="write">创作</view>
 </view>
 <view class="body">
     <view class="list">
-      <view class="li" wx:for="item of list" wx:key="item.id">
+      <view class="li" wx:for="{{list}}" wx:key="id">
         <view class="txt">
           <view class="title">{{item.title}}</view>
-          <view class="text">{{item.body}}</view>
+          <view class="text">{{item.txt}}</view>
         </view>
         <view class="img">
           <image src="./images/333.jpg"></image>
         </view>
         <view class="btns">
-          
+          <view class="icon"><image src="./images/zan_1.png"></image></view>
+          <view class="icon"><image src="./images/zan_1.png"></image></view>
+          <view class="icon"><image src="./images/zan_1.png"></image></view>
         </view>
       </view>
-      <view class="li">ddd</view>
     </view>
 </view>

@@ -8,6 +8,7 @@ image{
   background: #39D859;
   padding:0 40rpx;
   overflow: hidden;
+  position: relative;
 }
 .header .search{
   width:500rpx;
@@ -31,12 +32,24 @@ image{
   right: 20rpx;
   top:0;
 }
-
+.header .write{
+  position: absolute;
+  right: 80rpx;
+  top:10rpx;
+  width:100rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 36rpxn;
+  background: #EEEE11;
+  border-radius: 40rpx;
+}
 .body .list .li{
   padding:20rpx 20rpx;
   margin-bottom:20rpx;
   height:300rpx;
   box-shadow:rgba(0, 0, 0, 0.4) 0rpx 0rpx 20rpx;
+  position: relative;
 }
 .body .list .txt{
   float: left;
@@ -57,4 +70,14 @@ image{
 }
 .body .list .img image{
   border-radius: 40rpx;
+}
+.body .list .btns{
+  position: absolute;
+  bottom:10rpx;
+}
+.body .list .btns .icon{
+  display: inline-block;
+  width:32rpx;
+  height: 32rpx;
+  margin-right: 20rpx;
 }
