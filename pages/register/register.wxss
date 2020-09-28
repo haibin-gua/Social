@@ -1,0 +1,67 @@
+/* pages/register/register.wxss */
+.register{
+  padding:0 100rpx;
+  margin-top:150rpx;
+}
+.user{
+  overflow: hidden;
+  margin-bottom: 40rpx;
+}
+.user .txt{
+  font-size: 38rpx;
+  color: #333;
+  float: left;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.user-box{
+  float: right;
+  height: 60rpx;
+  border: 2rpx solid gray;
+  width:360rpx;
+  border-radius: 30rpx;
+}
+.user-box input{
+  width:100%;
+  height: 100%;
+  padding-left:20rpx;
+  font-size: 24rpx;
+}
+.pwd{
+  overflow: hidden;
+}
+.pwd .txt{
+  font-size: 38rpx;
+  color: #333;
+  float: left;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: left;
+}
+.pwd-box{
+  float: right;
+  height: 60rpx;
+  width:360rpx;
+  border: 2rpx solid gray;
+  border-radius: 30rpx;
+}
+.pwd-box input{
+  width:100%;
+  height: 100%;
+  font-size: 24rpx;
+  padding-left:20rpx;
+}
+.register .btns{
+  margin-top:40rpx;
+}
+.register .btns .btn{
+  display: inline-block;
+  width:180rpx;
+  height: 80rpx;
+  background: red;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  border-radius: 30rpx;
+  margin-right: 40rpx;
+}
