@@ -1,0 +1,34 @@
+/* pages/create/create.wxss */
+.hd{
+  background: #fff;
+  overflow: hidden;
+  padding:0 40rpx;
+  height: 100rpx;
+  box-shadow: rgba(0, 0, 0, 0.2) 10rpx 10rpx 10rpx;
+}
+.hd .close{
+  float: left;
+  margin-top:40rpx;
+}
+.hd .btn{
+  float: right;
+  width:100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: red;
+  text-align: center;
+  color:#fff;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  margin-top:20rpx;
+}
+.bd{
+  height: 600rpx;
+  border-bottom: 2rpx solid #333;
+}
+.bd textarea{
+  width:100%;
+  height: 100%;
+  padding:0 40rpx;
+  padding-top:20rpx;
+}

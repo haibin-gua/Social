@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/create/create",
     "pages/index/index",
+    "pages/btns/btns",
     "pages/login/login",
     "pages/register/register",
     "pages/my/my",

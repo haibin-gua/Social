@@ -1,0 +1,8 @@
+<!--pages/create/create.wxml-->
+<view class="hd">
+  <view class="close"><van-icon name="cross" /></view>
+  <view class="btn">发布</view>
+</view>
+<view class="bd">
+  <textarea></textarea>
+</view>
