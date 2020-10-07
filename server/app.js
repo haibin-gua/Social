@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const mongoose = require('mongoose');
 const koabody = require('koa-body');
 const passport = require('koa-passport');
+var cors = require('koa2-cors');
 
 //实例化
 const app = new Koa();
@@ -13,6 +14,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 //回调到config文件中，passport.js
 require('./passport')(passport);
+
+app.use(cors());
 
 app.use(koabody());
 

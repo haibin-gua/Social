@@ -1,71 +1,59 @@
 // pages/register/register.js
+import WxValidate from '../../utils/WxValidate'
+import Dialog from '../../miniprogram/miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+      username:'',
+      password:'',
+      password2:''
   },
-  login:function(){
-    wx.navigateTo({
-      url: '../login/login',
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //初始化表单
+  onLoad: function(options) {   
+    this.initValidate();
+},
+  //验证函数
+initValidate() {
+  const rules = {
+    username: {
+      required: true,
+      minlength:2,
+      maxlength:8
+    },
+    password:{
+      required:true,
+      minlength:6,
+      maxlength:18
+    },
+    password2:{
+      require:true
+    }
   }
+  const messages = {
+    username: {
+      required: '请填写用户名',
+      minlength:'用户名的长度不能小于2位且不能大于8位',
+      maxlength:'用户名的长度不能小于2位且不能大于8位'
+    },
+    password:{
+      required:'请填写密码',
+      minlength:'密码只能由6-16位数字和字母组成',
+      maxlength:'密码只能由6-16位数字和字母组成'
+    }
+  }
+  //创建实例对象
+  this.WxValidate = new WxValidate(rules, messages)
+  },
+  submitForm(e) {
+    let params = e.detail.value   //获取到表单的值赋值给变量
+    console.log(params)
+    if(this.WxValidate.checkForm(params) && params.password == password2){    //  使用checkForm方法验证，如果直接传入e
+      //验证通过后的操作
+      console.log('ddd')                      //获取不到value无法完成验证
+    }else{
+      let error = this.WxValidate.errorList[0].msg
+      Dialog.alert({
+        message: error,
+      });
+    }
+},
 })

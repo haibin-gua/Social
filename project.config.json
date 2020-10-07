@@ -27,12 +27,12 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.13.0",
-	"appid": "wx496f5eecd508ad7b",
+	"appid": "wx9339d3cd5e7b0698",
 	"projectname": "social",
 	"debugOptions": {
 		"hidedInDevtools": []

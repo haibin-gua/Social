@@ -1,44 +1,21 @@
 <!--pages/register/register.wxml-->
-<!-- <view class="register">
-  <form>
-    <view class="user">
-     <view class="txt">用户名：</view>
-     <view class="user-box">
-      <input type="text" placeholder="请输入用户名"/>
-     </view>
+<view class="register">
+  <form bindsubmit='submitForm'>
+    <view class="img">
+      <image src="../my/images/333.jpg"></image>
     </view>
-    <view class="pwd">
-      <view class="txt">密码：</view>
-      <view class="pwd-box">
-        <input type="text" placeholder="请输入密码"/>
-      </view>
+    <view class="input">
+      <input type="text" name="username" value="{{username}}" placeholder="请输入用户名"/>
     </view>
-    <view class="btns">
-      <view class="btn">确认注册</view>
-      <view class="btn login">返回登录</view>
+    <view class="input">
+      <input type="password" name="password" value="{{password}}" placeholder="请输入密码"/>
+    </view>
+     <view class="input">
+      <input type="password" name="password2" value="{{password2}}" placeholder="请确认密码"/>
+    </view>
+    <view class="btn">
+      <button form-type='submit'>确认注册</button>
     </view>
   </form>
-</view> -->
-<!-- <van-button type="primary">按钮</van-button> -->
-<van-cell-group>
-  <van-field
-    value="{{ username }}"
-    required
-    clearable
-    label="用户名"
-    icon="question-o"
-    placeholder="请输入用户名"
-    bind:click-icon="onClickIcon"
-  />
-
-  <van-field
-    value="{{ password }}"
-    type="password"
-    label="密码"
-    placeholder="请输入密码"
-    required
-    border="{{ false }}"
-  />
-  <van-button round type="info">确认注册</van-button>
-  <van-button round type="info" bindtap="login">返回登录</van-button>
-</van-cell-group>
+  <van-dialog id="van-dialog" />
+</view>

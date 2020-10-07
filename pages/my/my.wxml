@@ -1,7 +1,8 @@
 <!--pages/my/my.wxml-->
 <view class="header">
-  <view class="hd-img"><image src="./images/333.jpg"></image></view>
-  <view class="name">啦啦啦</view>
+  <view class="hd-img"><image src="{{imgUrl}}"></image></view>
+  <view class="name">{{name}}</view>
 </view>
 <view class="coll">我的收藏</view>
-<view class="btn">退出账号</view>
+<view class="btn" bindtap="btns">退出账号</view>
+<button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">fff</button>

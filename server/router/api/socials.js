@@ -9,8 +9,17 @@ const passport = require('koa-passport');
 //引入model
 const Social = require('../../models/Social');
 
+//引入验证
+const validateRegisterInput = require('../../validation/register');
+
 //注册接口
 router.post('/register',async (ctx)=>{
+    const { errors,isValid } = validateRegisterInput(ctx.request.body);
+    //判断是否验证通过
+    if(!isValid){
+        ctx.body = errors;
+        return;
+    }
     const findReuslt = await Social.find({username:ctx.request.body.username})
     if(findReuslt.length > 0){
         ctx.body = {
