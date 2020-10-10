@@ -46,9 +46,31 @@ initValidate() {
   submitForm(e) {
     let params = e.detail.value   //获取到表单的值赋值给变量
     console.log(params)
-    if(this.WxValidate.checkForm(params) && params.password == password2){    //  使用checkForm方法验证，如果直接传入e
+    if(this.WxValidate.checkForm(params)){    //  使用checkForm方法验证，如果直接传入e
       //验证通过后的操作
-      console.log('ddd')                      //获取不到value无法完成验证
+      if(params.password === params.password2){
+        wx.request({
+          url: 'http://localhost:3000/api/socials/register',
+          method:"POST",
+          header:{
+            'content-type':'application/json'
+          },
+          data:{
+            'username':params.username,
+            'password':params.password
+          },
+          success:function(res){
+            console.log(res)
+          },
+          fail:function(err){
+            console.log(err)
+          }
+        })
+      }else{
+        Dialog.alert({
+          message: '两次输入密码不同',
+        });
+      }              
     }else{
       let error = this.WxValidate.errorList[0].msg
       Dialog.alert({

@@ -5,11 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var app = getApp()
+    var that = this;
+    var gettoken = app.globalData.token
+    console.log(gettoken)
+    wx.request({
+      url: 'http://localhost:3000/api/socials/current',
+      method:"GET",
+      header:{
+        'content-type':'application/json',
+        'Authorization':gettoken
+      },
+      success:function(res){
+        console.log(res)
+        var name = res.data.username;
+        that.setData({
+          name:name
+        })
+      },
+      fail:function(err){
+        console.log(err)
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,43 +1,15 @@
-<!--pages/login/login.wxml-->
-<!-- <view class="login">
-  <form>
-    <view class="user">
-     <view class="txt">用户名：</view>
-     <view class="user-box">
-      <input type="text" placeholder="请输入用户名"/>
-     </view>
+<!-- pages/login/login.wxml -->
+<view class="login">
+  <form bindsubmit="submitForm">
+    <view class="input">
+      <input type="text" name="username" placeholder="请输入用户名"/>
     </view>
-    <view class="pwd">
-      <view class="txt">密码：</view>
-      <view class="pwd-box">
-        <input type="text" placeholder="请输入密码"/>
-      </view>
+    <view class="input">
+      <input type="password" name="password" placeholder="密码"/>
     </view>
-    <view class="btns">
-      <view class="btn">登录</view>
-      <view class="btn register">注册</view>
+    <view class="btn">
+      <button form-type="submit">立即登录</button>
     </view>
   </form>
-</view> -->
-<van-cell-group>
-  <van-field
-    value="{{ username }}"
-    required
-    clearable
-    label="用户名"
-    icon="question-o"
-    placeholder="请输入用户名"
-    bind:click-icon="onClickIcon"
-  />
-
-  <van-field
-    value="{{ password }}"
-    type="password"
-    label="密码"
-    placeholder="请输入密码"
-    required
-    border="{{ false }}"
-  />
-  <van-button round type="info">登录</van-button>
-  <van-button round type="info" bindtap="register">注册</van-button>
-</van-cell-group>
+</view>
+<view bindtap="btn">ddddf</view>

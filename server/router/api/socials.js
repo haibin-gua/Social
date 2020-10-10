@@ -28,7 +28,7 @@ router.post('/register',async (ctx)=>{
     }else{
         const newSocial = new Social({
             username:ctx.request.body.username,
-            password:tools.enbcrypt(ctx.request.body.password)   //加密密码
+            password:tools.enbcrypt(ctx.request.body.password),   //加密密码
         });
         //存储到数据库
         await newSocial.save().then(social=>{
@@ -70,10 +70,17 @@ router.post('/login',async(ctx)=>{
     }
 });
 
+//发表文章
+router.put('/add',async(ctx)=>{
+    await Social.update({username:ctx.request.body.username},{title:ctx.request.body.title,body:ctx.request.body.body})
+})
+
 router.get('/current',passport.authenticate('jwt', { session: false }),async(ctx)=>{
     ctx.body = {
         id:ctx.state.user._id,
-        username:ctx.state.user.username
+        username:ctx.state.user.username,
+        title:ctx.state.user.title,
+        body:ctx.state.user.body
     }
 })
 
