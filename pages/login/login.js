@@ -22,15 +22,15 @@ Page({
         'password':password
       },
       success:function(res){
-        console.log(res)
-        console.log(res.data.token)
+        // console.log(res)
+        // console.log(res.data.token)
         var token = res.data.token
         var app = getApp()                  //将token存储到全局中方便各个页面调用
         var gettoken = app.globalData.token = token
-        console.log(gettoken)
+        // console.log(gettoken)
         if(gettoken){    //如果gettoken有数据说明登录成功进行下一步操作
           wx.reLaunch({
-          url: '/pages/my/my',
+          url: '/pages/index/index',
         })
         } 
       },
@@ -43,20 +43,20 @@ Page({
    var app = getApp()
    var gettoken = app.globalData.token
    console.log(gettoken)
-    wx.request({
-      url: 'http://localhost:3000/api/socials/current',
-      method:"GET",
-      header:{
-        'content-type':'application/json',
-        'Authorization':gettoken
-      },
-      success:function(res){
-        console.log(res)
-      },
-      fail:function(err){
-        console.log(err)
-      }
-    })
+    // wx.request({
+    //   url: 'http://localhost:3000/api/socials/current',
+    //   method:"GET",
+    //   header:{
+    //     'content-type':'application/json',
+    //     'Authorization':gettoken
+    //   },
+    //   success:function(res){
+    //     console.log(res)
+    //   },
+    //   fail:function(err){
+    //     console.log(err)
+    //   }
+    // })
   },
 
   /**

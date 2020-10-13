@@ -8,10 +8,10 @@
 </view>
 <view class="body">
     <view class="list">
-      <view class="li" wx:for="{{list}}" wx:key="id">
+      <view bindtap="details" data-index="{{index}}" class="li" wx:for="{{list}}" wx:key="id">
         <view class="txt">
           <view class="title">{{item.title}}</view>
-          <view class="text">{{item.txt}}</view>
+          <view class="text">{{item.body}}</view>
         </view>
         <view class="img">
           <image src="./images/333.jpg"></image>

@@ -71,16 +71,24 @@ router.post('/login',async(ctx)=>{
 });
 
 //发表文章
-router.put('/add',async(ctx)=>{
-    await Social.update({username:ctx.request.body.username},{title:ctx.request.body.title,body:ctx.request.body.body})
+router.post('/add',async(ctx)=>{
+    const findResult = await Social.update({username:ctx.request.body.username},{$addToSet:{list:{title:ctx.request.body.title,body:ctx.request.body.body}}})
+    console.log(findResult)
 })
 
+//获取所有文章
+router.get('/acq',async(ctx)=>{
+    const findResult = await Social.find(ctx.request.body)
+    console.log(findResult[0])
+    ctx.body = findResult
+})
+
+//解析token
 router.get('/current',passport.authenticate('jwt', { session: false }),async(ctx)=>{
     ctx.body = {
         id:ctx.state.user._id,
         username:ctx.state.user.username,
-        title:ctx.state.user.title,
-        body:ctx.state.user.body
+        list:ctx.state.user.list
     }
 })
 

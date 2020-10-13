@@ -1,3 +1,4 @@
+const koaBody = require('koa-body');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -11,14 +12,16 @@ const SocialSchema = new Schema({
        type:String,
        require:true
    },
-   title:{
-       type:String,
-       require:true
-   },
-   body:{
-       type:String,
-       require:true
-   }
+   list:[{
+       title:{
+           type:String,
+           require:true
+       },
+       body:{
+           type:String,
+           require:true
+       }
+   }]
 });
 
 module.exports = Social = mongoose.model("socials",SocialSchema);

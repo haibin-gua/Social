@@ -1,0 +1,62 @@
+<!--pages/details/details.wxml-->
+<view class="details">
+  <view class="hd">
+    <view class="hd-img">
+      <image src="../my/images/333.jpg"></image>
+    </view>
+    <view class="hd-rl">
+      <view class="hd-name">{{username}}</view>
+      <view class="hd-time">08-24 19:45</view>
+    </view>
+  </view>
+  <view class="bd">
+    <view class="bd-name">{{list.title}}</view>
+    <view class="bd-body">{{list.body}}</view>
+  </view>
+  <view class="oper">
+    <view class="oper-icon">
+      <view class="comm" bindtap="comm">回复</view>
+      <view class="pra" bindtap="pra">赞</view>
+    </view>
+    <view wx:if="{{!isshow}}" class="oper-comm">
+      <view class="comm-wrapper">
+        <view class="comm-hd">
+          <view class="img">
+            <image src="../my/images/333.jpg"></image>
+          </view>
+          <text class="name">哈哈</text>
+          <text class="time">10月12日</text>
+        </view>
+        <view class="comm-bd">
+        啦啦啦啦啦啦啦啦啦啦啦啦
+        </view>
+      </view>
+      <view class="comm-wrapper">
+        <view class="comm-hd">
+          <view class="img">
+            <image src="../my/images/333.jpg"></image>
+          </view>
+          <text class="name">哈哈</text>
+          <text class="time">10月12日</text>
+        </view>
+        <view class="comm-bd">
+        啦啦啦啦啦啦啦啦啦啦啦啦
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isshow}}" class="pra">
+    <view class="pra-list">
+      <view class="pra-img">
+        <image src="../my/images/333.jpg"></image>
+      </view>
+      <text class="pra-name">荔枝</text>
+    </view>
+  </view>
+  <view class="ft">
+   <view class="input">
+    <input type="text" placeholder="请回复"/>
+   </view>
+   <view class="btn">发布</view>
+  </view>
+</view>
