@@ -72,14 +72,15 @@ router.post('/login',async(ctx)=>{
 
 //发表文章
 router.post('/add',async(ctx)=>{
-    const findResult = await Social.update({username:ctx.request.body.username},{$addToSet:{list:{title:ctx.request.body.title,body:ctx.request.body.body}}})
+    // console.log(ctx.request.body)
+    const findResult = await Social.findByIdAndUpdate({_id:ctx.request.body.id},{$push:{pra:ctx.request.body.pra}})
     console.log(findResult)
 })
 
 //获取所有文章
 router.get('/acq',async(ctx)=>{
     const findResult = await Social.find(ctx.request.body)
-    console.log(findResult[0])
+    // console.log(findResult[0])
     ctx.body = findResult
 })
 

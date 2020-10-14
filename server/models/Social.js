@@ -20,7 +20,8 @@ const SocialSchema = new Schema({
        body:{
            type:String,
            require:true
-       }
+       },
+       pra:[]
    }]
 });
 

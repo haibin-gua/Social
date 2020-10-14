@@ -29,23 +29,33 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let index = options.index   //将index获取到
+    let id = options.id   //将id获取到
+    let username = options.username  //将用户名获取到
     var gettoken = app.globalData.token
     var that = this
-    console.log(gettoken)
     wx.request({
-      url: 'http://localhost:3000/api/socials/current',
+      url: 'http://localhost:3000/api/socials/acq',
       method:"GET",
       header:{
-        'content-type':'application/json',
-        'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2ZjNmQ5MGE4NzdiMGVhNDBlYTYyMCIsInVzZXJuYW1lIjoiamlqaSIsImlhdCI6MTYwMjU2ODUxNiwiZXhwIjoxNjAyNTcyMTE2fQ.Pjjf0sq_Y9Qf3hfT08PaHtzfKiblTgS2nG5R57pHWDw'
+        'content-type':'application/json'
       },
       success:function(res){
         console.log(res)
-        that.setData({
-          username:res.data.username,
-          list:res.data.list[index]
-        })
+        var data = res.data
+        for(var i = 0;i<data.length;i++){
+          if(data[i].username == username){
+            console.log(data[i])
+            var list = data[i].list
+            for(var j = 0;j<list.length;j++){
+              if(list[j]._id == id){
+                console.log(list[j])
+                that.setData({
+                  list:list[j]
+                })
+              }
+            }
+          }
+        }
       },
       fail:function(err){
         console.log(err)
