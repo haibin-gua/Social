@@ -9,6 +9,8 @@ Page({
     isshow:false,
     show: false,
     username:'',
+    id:'',
+    index_id:'',
     list:[{
       title:'',
       body:''
@@ -28,9 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     let id = options.id   //将id获取到
     let username = options.username  //将用户名获取到
+    this.setData({
+      id:id
+    })
     var gettoken = app.globalData.token
     var that = this
     wx.request({
@@ -40,22 +45,66 @@ Page({
         'content-type':'application/json'
       },
       success:function(res){
-        console.log(res)
+        // console.log(res)
         var data = res.data
         for(var i = 0;i<data.length;i++){
           if(data[i].username == username){
-            console.log(data[i])
+            // console.log(data[i])
+            that.setData({
+              id:data[i]._id
+            })
             var list = data[i].list
             for(var j = 0;j<list.length;j++){
               if(list[j]._id == id){
                 console.log(list[j])
                 that.setData({
-                  list:list[j]
+                  list:list[j],
+                  index_id:list[j]._id
                 })
               }
             }
           }
         }
+      },
+      fail:function(err){
+        console.log(err)
+      }
+    })
+  },
+  submitForm:function(){
+    var that = this
+    wx.request({
+      url: 'http://localhost:3000/api/socials/current',
+      method:'GET',
+      header:{
+        'content-type':'application/json',
+        'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODU1MTZkYWI3MTkzMmQzNDY0NDhlMCIsInVzZXJuYW1lIjoiamlqaSIsImlhdCI6MTYwMjc2NTYxNSwiZXhwIjoxNjAyNzY5MjE1fQ.eK3aaOGez-m5m2lbGmAw1upxHo0ekmZzigWKrNTZ-ME'
+      },
+      success:function(res){
+        var id = res.data.id
+        var id_2 = that.data.id
+        var index_id = that.data.index_id
+        console.log(id)      
+        console.log(id_2)
+        wx.request({
+          url: 'http://localhost:3000/api/socials/comm',
+          method:'POST',
+          data:{
+            id:id,
+            id_2:id_2,
+            index_id:index_id,
+            text:'dfdsafd'
+          },
+          header:{
+            'content-type':'application/json'
+          },
+          success:function(res){
+            console.log(res)
+          },
+          fail:function(err){
+            console.log(err)
+          }
+        })
       },
       fail:function(err){
         console.log(err)

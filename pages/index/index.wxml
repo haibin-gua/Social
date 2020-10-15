@@ -8,7 +8,7 @@
 </view>
 <view class="body">
     <view class="list">
-      <view bindtap="details" data-username="{{item.username}}" data-id="{{item._id}}" class="li" wx:for="{{list}}" wx:key="id">
+      <view bindtap="details" data-username="{{item.username}}" data-id="{{item._id}}" data-id2="{{item.id}}" class="li" wx:for="{{list}}" wx:key="id">
         <view class="txt">
           <view class="title">{{item.title}}</view>
           <view class="text">{{item.body}}</view>
@@ -18,7 +18,7 @@
           <image src="./images/333.jpg"></image>
         </view>
         <view class="btns">
-          <view class="icon"><image src="./images/zan_1.png"></image></view>
+          <view class="icon" data-username="{{item.username}}" data-id="{{item._id}}" data-id2="{{item.id}}" bindtap="pra"><image src="./images/zan_1.png"></image></view>
           <view class="icon"><image src="./images/zan_1.png"></image></view>
           <view class="icon"><image src="./images/zan_1.png"></image></view>
         </view>

@@ -54,9 +54,13 @@
     </view>
   </view>
   <view class="ft">
-   <view class="input">
-    <input type="text" placeholder="请回复"/>
-   </view>
-   <view class="btn">发布</view>
+    <form bindsubmit="submitForm">
+      <view class="input">
+        <input type="text" name="name" placeholder="请回复"/>
+      </view>
+      <view class="btn">
+        <button form-type="submit">发布</button>
+      </view>
+    </form>
   </view>
 </view>

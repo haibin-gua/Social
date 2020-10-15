@@ -11,6 +11,7 @@ const Social = require('../../models/Social');
 
 //引入验证
 const validateRegisterInput = require('../../validation/register');
+const { findById } = require('../../models/Social');
 
 //注册接口
 router.post('/register',async (ctx)=>{
@@ -70,12 +71,55 @@ router.post('/login',async(ctx)=>{
     }
 });
 
-//发表文章
-router.post('/add',async(ctx)=>{
-    // console.log(ctx.request.body)
-    const findResult = await Social.findByIdAndUpdate({_id:ctx.request.body.id},{$push:{pra:ctx.request.body.pra}})
-    console.log(findResult)
+//点赞
+router.post('/pra',async(ctx)=>{
+    const findResult = await Social.findById({_id:ctx.request.body.id})  //点赞用户
+    // console.log(findResult.username)
+    // const pra = findResult.username
+    const findResult2 = await Social.findById({_id:ctx.request.body.index_id2}) //被点赞用户
+    // console.log(findResult2)
+    for(var i = 0;i<findResult2.list.length;i++){          //循环遍历被点赞用户所有的文章
+        var id = findResult2.list[i]._id.toString();        //通过前端传来的文章id来判断
+        if(id === ctx.request.body.index_id){               
+            console.log(findResult2.list[i])
+            if(findResult2.list[i].pra.indexOf(pra) > -1){   //判断有无重复用户名，如果有就已经点过赞了
+                ctx.body = {
+                    pra:'你已经点过赞了'
+                }
+            }else{
+                findResult2.list[i].pra.push(pra)
+                findResult2.markModified('pra')
+                await findResult2.save((err)=>{
+                   console.log(err)
+                });
+                ctx.body = findResult2
+            }
+        }
+    }
 })
+
+//回复
+router.post('/comm',async(ctx)=>{
+    const findResult = await Social.findById({_id:ctx.request.body.id})  //评论的用户
+    const findResult2 = await Social.findById({_id:ctx.request.body.id_2})  //被评论的用户
+    var username = findResult.username
+    // console.log(findResult)
+    // console.log(findResult2)
+    // console.log(ctx.request.body.index_id)
+    for(var i = 0;i<findResult2.list.length;i++){
+        var id = findResult2.list[i]._id.toString()
+        if(id === ctx.request.body.index_id){
+            findResult2.list[i].comm.push({username:username,text:ctx.request.body.text})
+                findResult2.markModified('comm')
+                await findResult2.save((err)=>{
+                   console.log(err)
+                });
+                ctx.body = findResult2
+        }
+    }
+})
+
+
 
 //获取所有文章
 router.get('/acq',async(ctx)=>{

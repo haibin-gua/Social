@@ -124,6 +124,9 @@ image{
 }
 .ft .btn{
   float: left;
-  line-height: 100rpx;
-  margin-left:20rpx;
+  width:100rpx;
+  height: 50rpx;
+}
+.ft .btn button{
+  color: #333;
 }

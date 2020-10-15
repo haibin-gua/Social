@@ -23,7 +23,7 @@ Page({
       },
       success:function(res){
         // console.log(res)
-        // console.log(res.data.token)
+        console.log(res.data.token)
         var token = res.data.token
         var app = getApp()                  //将token存储到全局中方便各个页面调用
         var gettoken = app.globalData.token = token

@@ -21,7 +21,17 @@ const SocialSchema = new Schema({
            type:String,
            require:true
        },
-       pra:[]
+       pra:[],
+       comm:[{
+           username:{
+            type:String,
+            require:true
+           },
+           text:{
+               type:String,
+               require:true
+           }
+       }]
    }]
 });
 
